@@ -22,27 +22,28 @@ console.log(casuali);
 
 // funzione che ritarda l'inizio del prompt di 30 secondi
 
-setTimeout(ritarda, 1000, memoria);
+setTimeout(ritarda, 1000);
 var memoria = [];
 
 
-function ritarda(ar){
+function ritarda(){
+    var memoria = [];
+   for (var i = 0; i < 5; i++){
+       var ricordati = parseInt(prompt('scrivi il numero'));
+       memoria.push(ricordati);
+   }
 
-     var ar = [];
-    for (var i = 0; i < 5; i++){
-        var ricordati = parseInt(prompt('scrivi il numero'));
-        ar.push(ricordati);
-    }
-console.log(ar);
-}
-
-// adesso devo comparare i numeri dei due array e vedere se corrispondono tra loro. faccio un if e comparo
-
-if(casuali[i] == memoria [i]){
+console.log(memoria);
+if(casuali === memoria ){
     alert('hai vinto');
 }else{
     alert('hai perso');
 }
+
+}
+
+
+
 
 
 
