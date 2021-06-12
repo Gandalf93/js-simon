@@ -2,6 +2,8 @@
 // Da li parte un timer di 30 secondi.
 // Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+ //BONUS controllare che i numeri generati casualmente siano univoci (non ci siano doppioni) ed anche i numeri che l'utente inserisce non devono già essere stati scritti precedentemente.
+         
 
 var casuali = [];
 
@@ -22,32 +24,41 @@ var casuali = [];
     }
   }
      
+  console.log(casuali);
+  alert(casuali);
 
-console.log(casuali);
-alert(casuali);
+  setTimeout(ritarda, 1000);
 
-
-
-setTimeout(ritarda, 1000);
-
-function ritarda(){
-
-   var memoria = [];
-
-   for (var i = 1; i <= 5; i++){
-       var ricordati = parseInt(prompt('scrivi il numero' + ' ' + i));
-       if(casuali.includes(ricordati)){
-        memoria.push(ricordati);
+  function ritarda(){
+  
+     var memoria = [];
+  
+     for (var i = 1; i <= 5; i++){
+         var ricordati = parseInt(prompt('scrivi il numero' + ' ' + i));
+         var controlla = memoria.includes(ricordati)
+         
+         if(controlla === false){
+            if(casuali.includes(ricordati)){
+                memoria.push(ricordati);
+            }
+         }else{
+             alert('hai già scritto questo numero');
+             ricordati = parseInt(prompt('scrivi il numero' + ' ' + i));
+         }
     }
- }
-
- 
- alert('ne hai indovinati  '+ ' ' + memoria.length + ' ' + 'I numeri sono: ' + ' ' + memoria + '  -  ' + 'i numeri del computer sono: ' + casuali);
- 
-}
-        
-//BONUS controllare che i numeri generati casualmente siano univoci (non ci siano doppioni) ed anche i numeri che l'utente inserisce non devono già essere stati scritti precedentemente.
        
+       
+        alert('ne hai indovinati  '+ ' ' + memoria.length + ' ' + 'I numeri sono: ' + ' ' + memoria + '  -  ' + 'i numeri del computer sono: ' + casuali);
+        
+       }
+               
+               
+
+        
+ 
+
+
+
 
 
 
